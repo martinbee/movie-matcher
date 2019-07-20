@@ -1,0 +1,16 @@
+.Movie-container {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+}
+
+.MovieSelector-switch-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.MovieSelector-switch {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+        

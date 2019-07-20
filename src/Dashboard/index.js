@@ -26,6 +26,7 @@ const renderButtons = (selectedName, setName) => nameOptions
 
 const Dashboard = () => {
   const [name, setName] = useState('G');
+  // add name to context
 
   return (
     <div className="Dashboard-container">

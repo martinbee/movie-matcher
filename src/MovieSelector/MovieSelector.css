@@ -1,0 +1,11 @@
+.MovieSelector-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.MovieSelector-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
