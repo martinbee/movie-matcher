@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Switch from 'react-switch';
+import NameContext from '../contexts/name-context';
 
 import './Movie.css';
 
@@ -13,7 +14,10 @@ const Movie = ({
   title,
   overview,
 }) => { 
+  const name = useContext(NameContext);
   const posterUrl = getPosterUrl(poster_path);
+
+  console.log(name);
 
   return (
     <div key={id} className="Movie-container">

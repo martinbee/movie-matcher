@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import MovieSelector from '../MovieSelector';
+import NameContext from '../contexts/name-context';
 
 const nameOptions = [
   'G',
@@ -26,14 +27,15 @@ const renderButtons = (selectedName, setName) => nameOptions
 
 const Dashboard = () => {
   const [name, setName] = useState('G');
-  // add name to context
 
   return (
     <div className="Dashboard-container">
       <div className="Dashboard-buttons-container">
         {renderButtons(name, setName)}
       </div>
-      <MovieSelector />
+      <NameContext.Provider value={name}>
+        <MovieSelector />
+      </NameContext.Provider>
     </div>
   );
 };
