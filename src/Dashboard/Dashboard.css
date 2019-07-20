@@ -1,0 +1,27 @@
+.Dashboard-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.Dashboard-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 40%;
+  align-self: center;
+}
+
+.Dashboard-button {
+  padding: 10px 25px 10px 25px;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.Dashboard-selected-button {
+  padding: 10px 25px 10px 25px;
+  border-radius: 10px;
+  background-color: #00BCD4;
+  font-size: 1em;
+  color: #ffffff;
+}
