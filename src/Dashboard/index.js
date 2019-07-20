@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
+import MovieSelector from '../MovieSelector';
 
 const nameOptions = [
   'G',
@@ -31,7 +32,7 @@ const Dashboard = () => {
       <div className="Dashboard-buttons-container">
         {renderButtons(name, setName)}
       </div>
-      <div>{name}</div>
+      <MovieSelector />
     </div>
   );
 };
