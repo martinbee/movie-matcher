@@ -4,8 +4,8 @@ import MovieSelector from '../MovieSelector';
 import NameContext from '../contexts/name-context';
 
 const nameOptions = [
-  'G',
-  'M',
+  'Ginny',
+  'Martin',
 ];
 
 const renderButtons = (selectedName, setName) => nameOptions
@@ -26,7 +26,7 @@ const renderButtons = (selectedName, setName) => nameOptions
   });
 
 const Dashboard = () => {
-  const [name, setName] = useState('G');
+  const [name, setName] = useState('Ginny');
 
   return (
     <div className="Dashboard-container">

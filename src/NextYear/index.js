@@ -1,4 +1,5 @@
 import React from 'react';
+import './NextYear.css';
 
 const NextYear = ({ year, setYear }) => {
   const nextYear = year + 1;
@@ -6,8 +7,12 @@ const NextYear = ({ year, setYear }) => {
 
   return (
     <div>
-      <button type="button" onClick={goToNextYear}>
-        {nextYear}
+      <button 
+        type="button" 
+        onClick={goToNextYear}
+        className="NextYear-button"
+      >
+        Next year's movies ({nextYear})
       </button>
     </div>
   );

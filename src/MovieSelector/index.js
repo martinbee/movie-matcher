@@ -34,6 +34,9 @@ const MovieSelector = () => {
 
   return (
     <div className="MovieSelector-container">
+      <div className="MovieSelector-year-message">
+        Showing movies from {year}
+      </div>
       <div className="MovieSelector-movies">
         {movies.map(movie => <Movie key={movie.id} {...movie} />)}
       </div>

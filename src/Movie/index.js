@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Switch from 'react-switch';
 import NameContext from '../contexts/name-context';
 
 import './Movie.css';
@@ -16,23 +15,18 @@ const Movie = ({
 }) => { 
   const name = useContext(NameContext);
   const posterUrl = getPosterUrl(poster_path);
-
-  console.log(name);
+  const isInList = true;
 
   return (
     <div key={id} className="Movie-container">
       <img src={posterUrl} alt={title} title={overview} />
-      <div className="MovieSelector-switch-container">
-        <label>
-          <span>Add</span>
-          <Switch
-            id=""
-            onChange={() => console.log('add')}
-            checked={false}
-            className="MovieSelector-switch"
-          />
-        </label>
-      </div>
+      <button
+        type="button"
+        onClick={() => console.log('added')}
+        className="Movie-button"
+      >
+        {isInList ? 'Remove' : 'Add'}
+      </button>
     </div>
   );
 };
