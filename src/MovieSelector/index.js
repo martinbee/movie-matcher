@@ -7,9 +7,12 @@ import NextYear from '../NextYear';
 
 const tmdbUrl = 'https://api.themoviedb.org/3/discover/movie';
 
-const MovieSelector = () => {
+const MovieSelector = ({ name }) => {
   const [year, setYear] = useState(1980);
   const [movies, setMovies] = useState([]);
+
+  const jsonMovieList = window.localStorage.getItem(name);
+  const [movieList, setMovieList] = useState(jsonMovieList ? JSON.parse(jsonMovieList) : {});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,13 +35,40 @@ const MovieSelector = () => {
     fetchData();
   }, [year]);
 
+  useEffect(() => {
+    const updatedJsonMovieList = JSON.stringify(movieList);
+    window.localStorage.setItem(name, updatedJsonMovieList);
+  }, [movieList]);
+
+  const addMovieToList = title => setMovieList({ ...movieList, [title]: true });
+  const removeMovieFromList = (title) => {
+    const updatedMovieList = { ...movieList };
+
+    delete updatedMovieList[title];
+    setMovieList(updatedMovieList);
+  };
+
+  const renderMovies = () => movies.map((movie) => {
+    const { id, title } = movie;
+    const isInList = movieList[title];
+
+    return (
+      <Movie 
+        key={id} 
+        isInList={isInList} 
+        addOrRemoveMovieFromList={isInList ? removeMovieFromList : addMovieToList}
+        {...movie}
+      />
+    );
+  });
+
   return (
     <div className="MovieSelector-container">
       <div className="MovieSelector-year-message">
         Showing movies from {year}
       </div>
       <div className="MovieSelector-movies">
-        {movies.map(movie => <Movie key={movie.id} {...movie} />)}
+        {renderMovies()}
       </div>
       <NextYear year={year} setYear={setYear} />
     </div>

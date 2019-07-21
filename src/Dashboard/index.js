@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import MovieSelector from '../MovieSelector';
-import NameContext from '../contexts/name-context';
 
 const nameOptions = [
   'Ginny',
@@ -33,9 +32,7 @@ const Dashboard = () => {
       <div className="Dashboard-buttons-container">
         {renderButtons(name, setName)}
       </div>
-      <NameContext.Provider value={name}>
-        <MovieSelector />
-      </NameContext.Provider>
+      <MovieSelector name={name} />
     </div>
   );
 };
