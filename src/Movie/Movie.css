@@ -13,6 +13,7 @@
   color: white;
   outline: none;
   cursor: pointer;
+  border-top: 1px solid #3F51B5;
 }
         
 .Movie-remove-button {
@@ -24,4 +25,5 @@
   color: #3F51B5;
   outline: none;
   cursor: pointer;
+  border-top: 1px solid #3F51B5;
 }

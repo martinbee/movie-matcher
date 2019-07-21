@@ -12,7 +12,8 @@ const MovieSelector = ({ name }) => {
   const [movies, setMovies] = useState([]);
 
   const jsonMovieList = window.localStorage.getItem(name);
-  const [movieList, setMovieList] = useState(jsonMovieList ? JSON.parse(jsonMovieList) : {});
+  const initialMovieList = jsonMovieList ? JSON.parse(jsonMovieList) : {};
+  const [movieList, setMovieList] = useState(initialMovieList);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +35,8 @@ const MovieSelector = ({ name }) => {
 
     fetchData();
   }, [year]);
+
+  useEffect(() => setMovieList(initialMovieList), [name]);
 
   useEffect(() => {
     const updatedJsonMovieList = JSON.stringify(movieList);
