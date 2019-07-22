@@ -39,9 +39,13 @@ const MovieSelector = ({ name }) => {
   useEffect(() => setMovieList(initialMovieList), [name]);
 
   useEffect(() => {
-    const updatedJsonMovieList = JSON.stringify(movieList);
-    window.localStorage.setItem(name, updatedJsonMovieList);
-  }, [movieList]);
+    const updateList = () => {
+      const updatedJsonMovieList = JSON.stringify(movieList);
+      window.localStorage.setItem(name, updatedJsonMovieList);
+    };
+
+    updateList();
+  }, [movieList, name]);
 
   const addMovieToList = title => setMovieList({ ...movieList, [title]: true });
   const removeMovieFromList = (title) => {

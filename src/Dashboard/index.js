@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import MovieSelector from '../MovieSelector';
+import ResultsButton from '../ResultsButton';
+import Results from '../Results';
 
 const nameOptions = [
   'Ginny',
@@ -26,6 +28,9 @@ const renderButtons = (selectedName, setName) => nameOptions
 
 const Dashboard = () => {
   const [name, setName] = useState('Ginny');
+  const [areResultsShown, setAreResultsShown] = useState(false);
+  
+  const toggleResultsShown = () => setAreResultsShown(!areResultsShown);
 
   return (
     <div className="Dashboard-container">
@@ -33,8 +38,12 @@ const Dashboard = () => {
         {renderButtons(name, setName)}
       </div>
       <MovieSelector name={name} />
+      <ResultsButton areResultsShown={areResultsShown} toggleResultsShown={toggleResultsShown} />
+      <Results areResultsShown={areResultsShown} />
     </div>
   );
 };
+
+// so much refactoring to be done
 
 export default Dashboard;

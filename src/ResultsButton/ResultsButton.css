@@ -1,0 +1,18 @@
+.ResultsButton-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ResultsButton-button {
+  width: 12rem;
+  height: 3rem;
+  color: white;
+  background-color: #3F51B5;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
